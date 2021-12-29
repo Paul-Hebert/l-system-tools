@@ -3,9 +3,22 @@
   <head>
     <title>L Systems Demo</title>
 
+    <link rel="stylesheet" href="/src/demo/index.css" />
+
     <script type="module" src="/src/demo/index.js"></script>
   </head>
   <body>
-    <canvas id="canvas">
+    <canvas width="800" height="400"></canvas>
+
+    <form>
+      <label>
+        Seed
+        <input type="text" value="A" name="seed" />
+      </label>
+      <label>
+        Iterations
+        <input type="number" min="1" step="1" value="5" name="iterations" />
+      </label>
+    </form>
   </body>
 </html>
