@@ -13,11 +13,30 @@
     <form>
       <label>
         Seed
-        <input type="text" value="A" name="seed" />
+        <input type="text" value="F" name="seed" />
+      </label>
+      <label>
+        Rules
+        <input type="text" value='{ "F": "F+F--F+F" }' name="rules" />
+      </label>
+      <label>
+        Angle
+        <input
+          type="number"
+          min="1"
+          max="360"
+          step="1"
+          value="90"
+          name="angle"
+        />
+      </label>
+      <label>
+        Distance
+        <input type="number" min="1" step="1" value="10" name="distance" />
       </label>
       <label>
         Iterations
-        <input type="number" min="1" step="1" value="5" name="iterations" />
+        <input type="number" min="1" step="1" value="1" name="iterations" />
       </label>
     </form>
   </body>

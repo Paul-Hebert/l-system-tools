@@ -4,7 +4,7 @@ export const parse = ({ seed, rules, iterations }) => {
   for (let i = 0; i < iterations; i++) {
     tree = tree
       .split("")
-      .map((char) => rules[char])
+      .map((char) => rules[char] || char)
       .join("");
   }
 
