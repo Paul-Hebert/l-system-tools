@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "browser-sync start --server --index \"src/demo/index.html\" --files \"**/*.html,**/*.js,**/*.css\"",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.27.7",
     "jest": "^27.4.5",
     "prettier": "^2.5.1"
   }
