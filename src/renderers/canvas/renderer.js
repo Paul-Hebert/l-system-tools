@@ -5,8 +5,9 @@ export const renderCanvas = ({
   distance = 10,
 }) => {
   const ctx = canvas.getContext("2d");
-  const position = { x: 0, y: 0 };
-  let rotation = 90;
+  let position = { x: 400, y: 400 };
+  let rotation = 180;
+  let trunks = [];
 
   // Clear the canvas
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -22,12 +23,21 @@ export const renderCanvas = ({
       rotation -= Number(angle);
     } else if (command === "-") {
       rotation += Number(angle);
+    } else if (command === "[") {
+      trunks.push({ position: { ...position }, rotation });
+    } else if (command === "]") {
+      const lastTrunk = trunks.pop();
+      position = { ...lastTrunk.position };
+      rotation = lastTrunk.rotation;
+      ctx.moveTo(position.x, position.y);
     } else if (command === "F") {
       position.x += Math.sin(degreesToRadians(rotation)) * distance;
       position.y += Math.cos(degreesToRadians(rotation)) * distance;
 
       ctx.lineTo(position.x, position.y);
     }
+
+    console.log(command);
 
     if (rotation >= 360) rotation -= 360;
   });
