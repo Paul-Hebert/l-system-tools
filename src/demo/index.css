@@ -1,4 +1,9 @@
+body {
+  background: #eee;
+}
+
 canvas {
+  background: #fff;
   width: 800px;
 }
 
