@@ -3,8 +3,8 @@ import { parse } from "./parse";
 test("handles basic parsing", () => {
   const seed = "A";
   const rules = {
-    A: "AB",
-    B: "BA",
+    A: { replacement: "AB" },
+    B: { replacement: "BA" },
   };
   expect(parse({ seed, rules, iterations: 1 })).toBe("AB");
   expect(parse({ seed, rules, iterations: 2 })).toBe("ABBA");
