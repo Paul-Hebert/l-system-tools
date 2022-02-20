@@ -1,49 +1,36 @@
-export const renderCanvas = ({
-  commandString,
-  canvas,
-  angle = 90,
-  distance = 10,
-}) => {
-  const ctx = canvas.getContext("2d");
-  let position = { x: 400, y: 400 };
-  let rotation = 180;
-  let trunks = [];
+import { Renderer } from "../base/renderer.js";
 
-  // Clear the canvas
-  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+export class canvasRenderer extends Renderer {
+  constructor(canvas) {
+    super();
+    this.context = canvas.getContext("2d");
+  }
 
-  // Start our path
-  ctx.beginPath();
-  // Move to starting position
-  ctx.moveTo(position.x, position.y);
+  clear = () => {
+    this.context.clearRect(
+      0,
+      0,
+      this.context.canvas.width,
+      this.context.canvas.height
+    );
+  };
 
-  // Handle commands
-  commandString.split("").forEach((command) => {
-    if (command === "+") {
-      rotation -= Number(angle);
-    } else if (command === "-") {
-      rotation += Number(angle);
-    } else if (command === "[") {
-      trunks.push({ position: { ...position }, rotation });
-    } else if (command === "]") {
-      const lastTrunk = trunks.pop();
-      position = { ...lastTrunk.position };
-      rotation = lastTrunk.rotation;
-      ctx.moveTo(position.x, position.y);
-    } else if (command === "F") {
-      position.x += Math.sin(degreesToRadians(rotation)) * distance;
-      position.y += Math.cos(degreesToRadians(rotation)) * distance;
+  prep = () => {
+    // Start our path
+    this.context.beginPath();
+    // Move to starting position
+    this.context.moveTo(this.position.x, this.position.y);
+  };
 
-      ctx.lineTo(position.x, position.y);
-    }
+  finish = () => {
+    this.context.stroke();
+  };
 
-    console.log(command);
+  drawLine = (from) => {
+    this.context.lineTo(this.position.x, this.position.y);
+  };
 
-    if (rotation >= 360) rotation -= 360;
-  });
-  ctx.stroke();
-};
-
-function degreesToRadians(degrees) {
-  return (degrees * Math.PI) / 180;
+  endBranchCallback = () => {
+    this.context.moveTo(this.position.x, this.position.y);
+  };
 }

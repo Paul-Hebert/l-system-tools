@@ -1,7 +1,8 @@
-import { renderCanvas } from "../renderers/canvas/renderer.js";
+import { canvasRenderer } from "../renderers/canvas/renderer.js";
 import { parse } from "../parser/parse.js";
 
 const form = document.querySelector("form");
+const renderer = new canvasRenderer(document.querySelector("canvas"));
 
 render();
 
@@ -16,14 +17,15 @@ function render() {
   const angle = document.querySelector('[name="angle"]').value;
   const distance = document.querySelector('[name="distance"]').value;
 
-  renderCanvas({
-    canvas: document.querySelector("canvas"),
+  renderer.render({
     commandString: parse({
       seed,
       rules,
       iterations,
     }),
-    angle,
+    startRotation: 180,
+    turnRotation: angle,
     distance,
+    startPosition: { x: 400, y: 400 },
   });
 }
