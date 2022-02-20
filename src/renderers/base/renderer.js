@@ -11,9 +11,9 @@ export class Renderer {
     // Set starting values
     this.distance = distance;
     this.position = { ...startPosition };
-    this.rotation = startRotation;
+    this.rotation = Number(startRotation);
     this.branchingPoints = [];
-    this.turnRotation = turnRotation;
+    this.turnRotation = Number(turnRotation);
 
     // Set up the canvas
     this.clear();
@@ -22,9 +22,9 @@ export class Renderer {
     // Handle commands
     commandString.split("").forEach((command) => {
       if (command === "+") {
-        this.rotation -= Number(this.turnRotation);
+        this.rotation -= this.turnRotation;
       } else if (command === "-") {
-        this.rotation += Number(this.turnRotation);
+        this.rotation += this.turnRotation;
       } else if (command === "[") {
         this.branchingPoints.push({
           position: { ...this.position },

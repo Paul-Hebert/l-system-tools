@@ -17,6 +17,7 @@ function render() {
   const seed = document.querySelector('[name="seed"]').value;
   const rules = JSON.parse(document.querySelector('[name="rules"]').value);
   const angle = document.querySelector('[name="angle"]').value;
+  const startRotation = document.querySelector('[name="startRotation"]').value;
   const distance = document.querySelector('[name="distance"]').value;
 
   renderer.render({
@@ -25,7 +26,7 @@ function render() {
       rules,
       iterations,
     }),
-    startRotation: 180,
+    startRotation,
     turnRotation: angle,
     distance,
     startPosition: { x: 400, y: 400 },
