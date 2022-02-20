@@ -7,7 +7,8 @@ const renderer = new svgRenderer(document.querySelector("svg"));
 
 render();
 
-form.addEventListener("input", () => {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
   render();
 });
 
