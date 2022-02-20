@@ -45,6 +45,8 @@ export class Renderer {
         this.position.y +=
           Math.cos(degreesToRadians(this.rotation)) * this.distance;
         this.drawLine(lastPosition);
+      } else {
+        this.customCommand(command);
       }
 
       if (this.rotation >= 360) this.rotation -= 360;
@@ -61,7 +63,11 @@ export class Renderer {
 
   drawLine(from) {}
 
+  endBranchPrep() {}
+
   endBranchFinish() {}
+
+  customCommand() {}
 }
 
 function degreesToRadians(degrees) {
