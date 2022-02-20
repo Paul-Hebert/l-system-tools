@@ -1,17 +1,22 @@
 import { Renderer } from "../base/renderer.js";
 
-export class svgRenderer extends Renderer {
+export class SvgRenderer extends Renderer {
   constructor(svg) {
     super();
     this.svg = svg;
+    this.markup = "";
   }
 
   clear = () => {
-    this.svg.innerHTML = "";
+    this.markup = "";
+  };
+
+  finish = () => {
+    this.svg.innerHTML = this.markup;
   };
 
   drawLine = (from) => {
-    this.svg.innerHTML += `
+    this.markup += `
       <line
         x1="${from.x}" 
         y1="${from.y}" 
@@ -21,14 +26,5 @@ export class svgRenderer extends Renderer {
         fill="none"
       />
       `;
-  };
-
-  endBranchPrep = () => {
-    this.svg.innerHTML += `
-      <circle
-        cx="${this.position.x}" 
-        cy="${this.position.y}" 
-        r="${this.distance / 5}"
-      />`;
   };
 }
