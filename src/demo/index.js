@@ -1,8 +1,9 @@
-import { canvasRenderer } from "../renderers/canvas/renderer.js";
+import { svgRenderer } from "../renderers/svg/renderer.js";
 import { parse } from "../parser/parse.js";
 
 const form = document.querySelector("form");
-const renderer = new canvasRenderer(document.querySelector("canvas"));
+// const renderer = new canvasRenderer(document.querySelector("canvas"));
+const renderer = new svgRenderer(document.querySelector("svg"));
 
 render();
 

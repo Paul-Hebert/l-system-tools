@@ -31,11 +31,13 @@ export class Renderer {
           rotation: this.rotation,
         });
       } else if (command === "]") {
+        this.endBranchPrep();
+
         const lastBranchingPoint = this.branchingPoints.pop();
         this.position = { ...lastBranchingPoint.position };
         this.rotation = lastBranchingPoint.rotation;
 
-        this.endBranchCallback();
+        this.endBranchFinish();
       } else if (command === "F") {
         const lastPosition = { ...this.position };
         this.position.x +=
@@ -59,7 +61,7 @@ export class Renderer {
 
   drawLine(from) {}
 
-  endBranchCallback() {}
+  endBranchFinish() {}
 }
 
 function degreesToRadians(degrees) {

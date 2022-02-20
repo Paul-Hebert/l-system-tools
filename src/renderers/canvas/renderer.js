@@ -30,7 +30,7 @@ export class canvasRenderer extends Renderer {
     this.context.lineTo(this.position.x, this.position.y);
   };
 
-  endBranchCallback = () => {
+  endBranchFinish = () => {
     this.context.moveTo(this.position.x, this.position.y);
   };
 }
