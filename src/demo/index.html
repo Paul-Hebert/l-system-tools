@@ -6,9 +6,21 @@
     <link rel="stylesheet" href="/src/demo/index.css" />
 
     <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
       svg,
       canvas {
         background: #fff;
+      }
+
+      form {
+        display: flex;
+        gap: 1em;
+        padding: 1em;
+        flex-wrap: wrap;
       }
     </style>
 
@@ -23,14 +35,40 @@
         Seed
         <input type="text" value="F" name="seed" />
       </label>
-      <label>
-        Rules
-        <input
-          type="text"
-          value='{ "F": {"replacement": "F[-F][+F]" }}'
-          name="rules"
-        />
-      </label>
+      <fieldset>
+        <legend>Rules</legend>
+
+        <fieldset class="rule">
+          <legend>Rules</legend>
+          <label>
+            Find:
+            <input type="text" value="F" name="find-0" class="find" />
+          </label>
+          <label>
+            Replace:
+            <input
+              type="text"
+              value="F[-F][+F]"
+              name="replace-0"
+              class="replace"
+            />
+          </label>
+          <label>
+            Chance:
+            <input
+              type="number"
+              value="1"
+              name="chance-0"
+              max="1"
+              min="0"
+              step="0.01"
+              class="chance"
+            />
+          </label>
+          <button class="remove" type="button">Remove</button>
+        </fieldset>
+        <button class="add" type="button">Add</button>
+      </fieldset>
       <label>
         Turning rotation
         <input
