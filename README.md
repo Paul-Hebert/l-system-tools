@@ -59,7 +59,7 @@ The renderer takes a command string and outputs graphics. There are currently th
 Here's an example of using the SVG renderer:
 
 ```js
-import { parse, SvgRenderer } from 'l-system-tools';
+import { parse, SvgRenderer } from "l-system-tools";
 
 // The renderer expects to be passed an SVG element when initialized
 const renderer = new SvgRenderer(document.querySelector("svg"));
@@ -69,11 +69,11 @@ renderer.render({
     axiom: "F",
     productions: {
       F: {
-        replacement: "F[-F][+F]"
-      }
+        replacement: "F[-F][+F]",
+      },
     },
     iterations: 2,
-  });
+  }),
   // Optionally define a starting rotation (determines starting direction)
   // Defaults to 90 (degrees)
   startRotation: 90,
