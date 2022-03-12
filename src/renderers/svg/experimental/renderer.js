@@ -8,7 +8,6 @@ export class ExperimentalSvgRenderer extends SvgRenderer {
           cx="${this.position.x}" 
           cy="${this.position.y}" 
           r="${this.distance / 5}"
-          fill=${Math.random() > 0.5 ? "red" : "blue"}
         />`;
     }
   };

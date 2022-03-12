@@ -80,9 +80,7 @@ function render() {
 
   commandStringEl.textContent = commandString;
   codeExampleEl.textContent = `
-// TODO: Barrel export
-import { svgRenderer } from "../renderers/svg/renderer.js";
-import { parse } from "../parser/parse.js";
+import { parse, svgRenderer } from "l-system";
 
 const renderer = new svgRenderer(document.querySelector("svg"));
 

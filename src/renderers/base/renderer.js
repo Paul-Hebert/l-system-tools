@@ -6,7 +6,7 @@ export class Renderer {
     startRotation = 90,
     turnRotation = 30,
     distance = 10,
-    startPosition,
+    startPosition = { x: 50, y: 50 },
   }) => {
     // Set starting values
     this.distance = distance;
