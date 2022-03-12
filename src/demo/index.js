@@ -2,6 +2,8 @@ import { ExperimentalSvgRenderer } from "../renderers/svg/experimental/renderer.
 import { parse } from "../parser/parse.js";
 
 const form = document.querySelector("form");
+const codeExampleEl = document.querySelector(".js-code-example");
+const commandStringEl = document.querySelector(".js-generated-string");
 // const renderer = new canvasRenderer(document.querySelector("canvas"));
 const renderer = new ExperimentalSvgRenderer(document.querySelector("svg"));
 
@@ -70,14 +72,35 @@ function render() {
     };
   });
 
-  console.log(productions);
+  const commandString = parse({
+    axiom,
+    productions,
+    iterations,
+  });
+
+  commandStringEl.textContent = commandString;
+  codeExampleEl.textContent = `
+// TODO: Barrel export
+import { svgRenderer } from "../renderers/svg/renderer.js";
+import { parse } from "../parser/parse.js";
+
+const renderer = new svgRenderer(document.querySelector("svg"));
+
+renderer.render({
+  commandString: parse({
+    axiom: "${axiom}",
+    productions: ${JSON.stringify(productions)},
+    iterations: ${iterations},
+  });
+  startRotation: ${startRotation},
+  turnRotation: ${angle},
+  distance: ${distance},
+  startPosition: { x: 400, y: 400 },
+});
+  `.trim();
 
   renderer.render({
-    commandString: parse({
-      axiom,
-      productions,
-      iterations,
-    }),
+    commandString,
     startRotation,
     turnRotation: angle,
     distance,
