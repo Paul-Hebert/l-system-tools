@@ -80,7 +80,7 @@ function render() {
 
   commandStringEl.textContent = commandString;
   codeExampleEl.textContent = `
-import { parse, svgRenderer } from "l-system";
+import { parse, svgRenderer } from "l-system-tools";
 
 const renderer = new svgRenderer(document.querySelector("svg"));
 

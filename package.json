@@ -1,5 +1,5 @@
 {
-  "name": "l-system",
+  "name": "l-system-tools",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,8 @@
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
   },
   "type": "module",
-  "author": "",
+  "author": "Paul Hebert",
+  "homepage": "https://github.com/Paul-Hebert/l-system-tools",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.27.7",

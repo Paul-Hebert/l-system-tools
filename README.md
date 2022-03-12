@@ -1,6 +1,6 @@
-# L Systems
+# L System Tools
 
-This is a JavaScript-based implementation of [Lindenmayer systems](https://en.wikipedia.org/wiki/L-system).
+This is a JavaScript-based implementation of [Lindenmayer systems](https://en.wikipedia.org/wiki/l-system).
 
 It consists of two key pieces:
 
@@ -10,7 +10,7 @@ It consists of two key pieces:
 ## Installation
 
 ```zsh
-npm i l-system
+npm i l-system-tools
 ```
 
 ## Parse Function
@@ -20,7 +20,7 @@ The core concept of L systems is that you can take a starting string (an axiom) 
 Here's an example of using the parser:
 
 ```js
-import { parse } from "l-system";
+import { parse } from "l-system-tools";
 
 const commandString = parse({
   // Starting string
@@ -59,7 +59,7 @@ The renderer takes a command string and outputs graphics. There are currently th
 Here's an example of using the SVG renderer:
 
 ```js
-import { parse, SvgRenderer } from 'l-system';
+import { parse, SvgRenderer } from 'l-system-tools';
 
 // The renderer expects to be passed an SVG element when initialized
 const renderer = new SvgRenderer(document.querySelector("svg"));
@@ -94,7 +94,7 @@ renderer.render({
 The canvas renderer has the same syntax, but takes a canvas element instead of an SVG.
 
 ```js
-import { parse, CanvasRenderer } from "l-system";
+import { parse, CanvasRenderer } from "l-system-tools";
 
 // The renderer expects to be passed an SVG element when initialized
 const renderer = new CanvasRenderer(document.querySelector("canvas"));
