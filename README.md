@@ -149,3 +149,9 @@ export class ExperimentalCanvasRenderer extends canvasRenderer {
 ```
 
 For further information about extending renderers I recommend you review the source code and see how the SVG Renderer and Canvas Renderer are coded.
+
+## Examples
+
+You can see an example of using this library with rollup here: https://github.com/Paul-Hebert/l-system-tools-test
+
+You can view an interactive demo here: https://l-system-tools.netlify.app/src/demo/
